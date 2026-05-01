@@ -1,85 +1,110 @@
-AI Voice Agent (Offline)
+# AI Voice Agent (Offline)
 
-An intelligent voice-based AI assistant that processes speech input, detects user intent, and executes actions such as code generation, summarization, and file creation. The system runs entirely locally without relying on paid APIs.
+## Overview  
+An intelligent voice-based AI assistant that processes speech input, detects user intent, and executes tasks such as code generation, summarization, and file creation.  
+The system runs entirely offline using local models, eliminating dependency on paid APIs.
 
-Features
-1. Voice input via recording and file upload
-2. Speech-to-text conversion using Whisper (offline)
-3. Multi-intent detection (rule-based)
+---
 
-4.Action execution:
-4.1. File creation
-4.2. Python code generation
-4.3. Text summarization and explanation
-4.4. General chat responses
+## Features  
+- Voice input via recording and file upload  
+- Speech-to-text conversion using Whisper (offline)  
+- Multi-intent detection (rule-based)  
+- Action execution:
+  - File creation  
+  - Python code generation  
+  - Text summarization and explanation  
+  - General chat responses  
+- Local LLM integration using Ollama (Llama3)  
+- Output file generation  
+- Confirmation before executing file operations  
+- Session history tracking  
 
-5. Local LLM integration using Ollama (llama3)
-6. Output file generation
-7. Confirmation mechanism before executing file operations
-8. Session history tracking
+---
 
-Architecture
+## Architecture  
+```
+Voice Input 
+   ↓
+Whisper (Speech-to-Text)
+   ↓
+Text Processing
+   ↓
+Intent Detection (Rule-Based)
+   ↓
+Action Handler
+   ↓
+Ollama (Llama3)
+   ↓
+Output (UI Display / File System)
+```
 
-Voice Input → Whisper (Speech-to-Text) → Text
-→ Intent Detection (rule-based)
-→ Action Handler
-→ Ollama (for code generation and explanation)
-→ Output (UI display and file system)
+---
 
-Tech Stack
-Python
-Streamlit
-Whisper
-Ollama (llama3)
-FFmpeg
+## Tech Stack  
+- Language: Python  
+- Framework: Streamlit  
+- Speech Recognition: Whisper (offline)  
+- LLM: Ollama (Llama3)  
+- Audio Processing: FFmpeg  
 
-Setup Instructions
-1. Clone the repository
-git clone <https://github.com/shagundubey48-cmd/ai_voice_agent.git>
+---
 
+## Setup Instructions  
+
+### 1. Clone the Repository  
+```
+git clone https://github.com/shagundubey48-cmd/ai_voice_agent.git
 cd ai_voice_agent
-2. Create a virtual environment
+```
 
+### 2. Create Virtual Environment  
+```
 python -m venv venv
 venv\Scripts\activate
+```
 
-3. Install dependencies
-
+### 3. Install Dependencies  
+```
 pip install -r requirements.txt
+```
 
-4. Install FFmpeg
+### 4. Install FFmpeg  
+Download from: https://www.gyan.dev/ffmpeg/builds/  
+Add the `bin` folder to your system PATH.
 
-Download from:
-https://www.gyan.dev/ffmpeg/builds/
-
-Add the bin directory to your system PATH.
-
-5. Start Ollama
-
+### 5. Start Ollama  
+```
 ollama serve
 ollama run llama3
+```
 
-6. Run the application
-
+### 6. Run the Application  
+```
 streamlit run app.py
+```
 
-Example Commands
+---
 
-"Explain Machine Learning"
+## Example Commands  
 
-"Write Python code for factorial"
+- "Explain Machine Learning"  
+- "Write Python code for factorial"  
+- "Create a file and write code for binary search"  
 
-"Create a file and write code for binary search"
+---
 
+## Hardware Notes  
+- Runs on CPU (GPU not required)  
+- Initial model loading in Ollama may take time  
+- FFmpeg is required for audio processing  
 
-Hardware Notes
+---
 
-Runs on CPU; no GPU required
+## Key Highlight  
+This project demonstrates a fully offline AI system using a local large language model, removing dependency on external APIs and reducing cost.
 
-Initial model loading in Ollama may take time
+---
 
-FFmpeg is required for audio processing
-
-Key Highlight
-
-This project demonstrates a fully offline AI system using a local large language model, eliminating dependency on external APIs and associated costs.
+## Author  
+Shagun Dubey  
